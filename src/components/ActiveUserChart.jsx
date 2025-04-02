@@ -72,10 +72,16 @@ export const TopActiveUsersChart = () => {
         responsive: true,
         maintainAspectRatio: false,
         plugins: {
+            legend: {
+                display: false,
+            },
             title: {
                 display: true,
-                text: 'Top utilisateurs les plus actifs'
-            }
+                text: "Top utilisateurs les plus actifs",
+                font: {
+                    size: 18
+                }
+            },
         },
         scales: {
             y: {
@@ -92,10 +98,8 @@ export const TopActiveUsersChart = () => {
     }
 
     return (
-        <div className="card" style={{ height: '400px' }}>
-            <div className="card-body">
+        <div style={{width: '100%', height: '100%'}}>
                 <Bar key={chartKey} options={options} data={userData}/>
-            </div>
         </div>
     )
 };

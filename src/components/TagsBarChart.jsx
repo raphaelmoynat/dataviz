@@ -79,14 +79,24 @@ export const TagsBarChart = () => {
 
     const options = {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+            },
+            title: {
+                display: true,
+                text: "Répartition des questions par tags",
+                font: {
+                    size: 18
+                }
+            },
+        }
     }
 
     return (
-        <div className="card" style={{ height: '300px' }}>
-            <div className="card-body">
+        <div style={{width: '100%', height: '100%'}}>
                 <Bar key={chartKey} options={options} data={tagsData}/>
-            </div>
         </div>
     );
 }
