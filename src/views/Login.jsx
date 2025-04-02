@@ -1,6 +1,6 @@
 import { useState} from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     async function fetchLogin(e) {
         e.preventDefault()
@@ -18,8 +19,10 @@ function Login() {
                 password
             })
             localStorage.setItem('token', response.data.access)
-            localStorage.setItem('user', username)
-            console.log('réussi')
+            navigate("/dashboard")
+
+
+
 
         } catch (error) {
             console.log(error)

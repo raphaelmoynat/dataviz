@@ -83,7 +83,7 @@ export const TagsBarChart = () => {
     }
 
     return (
-        <div className="card" style={{ height: '400px' }}>
+        <div className="card" style={{ height: '300px' }}>
             <div className="card-body">
                 <Bar key={chartKey} options={options} data={tagsData}/>
             </div>
