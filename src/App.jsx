@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from "./views/Home.jsx";
 import Login from "./views/Login.jsx";
 import Dashboard from "./components/Dashboard.jsx";
+import {AuthProvider} from "./context/AuthContext.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 
 
@@ -10,15 +12,21 @@ import Dashboard from "./components/Dashboard.jsx";
 function App() {
     return (
         <div>
-            <Router>
-                <Navbar />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-
-                </Routes>
-            </Router>
+            <AuthProvider>
+                    <Router>
+                        <Navbar />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route
+                                path="/dashboard" element={
+                                    <ProtectedRoute>
+                                        <Dashboard />
+                                    </ProtectedRoute>}
+                            />
+                        </Routes>
+                    </Router>
+            </AuthProvider>
 
         </div>
     )

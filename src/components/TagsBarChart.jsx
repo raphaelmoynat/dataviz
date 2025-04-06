@@ -37,7 +37,7 @@ export const TagsBarChart = () => {
         const fetchQuestions = async () => {
             try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get('http://127.0.0.1:8000/questions', {
+                const response = await axios.get('https://stackoversize.raphaelmoynat.com/questions', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
 

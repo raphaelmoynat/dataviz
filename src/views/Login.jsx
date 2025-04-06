@@ -1,6 +1,7 @@
-import { useState} from 'react'
+import {useContext, useState} from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext.jsx";
 
 
 
@@ -10,18 +11,17 @@ function Login() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
+    const { login } = useContext(AuthContext)
 
     async function fetchLogin(e) {
         e.preventDefault()
         try {
-            const response = await axios.post('http://127.0.0.1:8000/login', {
+            const response = await axios.post('https://stackoversize.raphaelmoynat.com/login', {
                 username,
                 password
             })
-            localStorage.setItem('token', response.data.access)
+            login(username, response.data.access)
             navigate("/dashboard")
-
-
 
 
         } catch (error) {
@@ -53,7 +53,6 @@ function Login() {
                     <input
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-
                         type="password"
                         className="form-control"
                         placeholder="Mot de passe"

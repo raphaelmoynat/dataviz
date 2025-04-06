@@ -8,7 +8,7 @@ export default function Home() {
                 <h1 class="text-center mb-4">Welcome to Dataviz of StackOversize</h1>
 
                 <div class="text-center">
-                    <p>Please log in</p>
+                    <p>Please log in with your stackoversize ids</p>
                 <Link to="/login" class="btn btn-primary">Login</Link>
             </div>
         </div>

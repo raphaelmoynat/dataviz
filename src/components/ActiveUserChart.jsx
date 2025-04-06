@@ -37,7 +37,7 @@ export const TopActiveUsersChart = () => {
         const fetchActiveUsers = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get('http://127.0.0.1:8000/profile/list', {
+                const response = await axios.get('https://stackoversize.raphaelmoynat.com/profile/list', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
 
@@ -49,7 +49,6 @@ export const TopActiveUsersChart = () => {
                     .slice(0, 8)
                 const labels = usersWithTotalContributions.map(user => user.display_name)
                 const contributions = usersWithTotalContributions.map(user => user.total_contributions)
-
                 setChartKey(prev => prev + 1)
                 setUserData({
                     labels: labels,

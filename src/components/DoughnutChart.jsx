@@ -38,7 +38,7 @@ export const DoughnutChart = () => {
         const fetchUsers = async () => {
             try {
                 const token = localStorage.getItem('token')
-                const response = await axios.get('http://127.0.0.1:8000/profile/list', {
+                const response = await axios.get('https://stackoversize.raphaelmoynat.com/profile/list', {
                     headers: { 'Authorization': `Bearer ${token}` }
                 })
 
